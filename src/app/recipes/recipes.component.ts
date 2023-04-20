@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component,Output } from '@angular/core';
+import { Recipe } from './recipe.model';
 
 @Component({
   selector: 'app-recipes',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./recipes.component.css']
 })
 export class RecipesComponent {
+
+ @Output() finalRecipeDetail:Recipe; 
+
+  recipeWasSelected(selectedRecipe:Recipe)
+  {
+   console.log(selectedRecipe)
+     this.finalRecipeDetail=selectedRecipe;
+  }
 
 }
