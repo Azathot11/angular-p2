@@ -1,5 +1,6 @@
-import { Component, OnInit ,Output,EventEmitter} from '@angular/core';
+import { Component} from '@angular/core';
 import { Recipe } from 'src/app/recipes/recipe.model';
+import { RecipeService } from './recipe.service';
 
 @Component({
   selector: 'app-recipe-list',
@@ -7,33 +8,21 @@ import { Recipe } from 'src/app/recipes/recipe.model';
   styleUrls: ['./recipe-list.component.css'],
 })
 export class RecipeListComponent {
-  recipes: Recipe[] = [
-    new Recipe(
-      'Test Recipe',
-      'Testing Recipe',
-      'https://www.kingarthurbaking.com/sites/default/files/styles/featured_image/public/2022-05/Tomato-Pie_0256.jpg?itok=c63mh-z9'
-    ),
-    new Recipe(
-      'Test Recipe 2',
-      'Testing Recipe',
-      'https://www.kingarthurbaking.com/sites/default/files/styles/featured_image/public/2022-05/Tomato-Pie_0256.jpg?itok=c63mh-z9'
-    ),
-    new Recipe(
-      'Test Recipe 3',
-      'Testing Recipe',
-      'https://www.kingarthurbaking.com/sites/default/files/styles/featured_image/public/2022-05/Tomato-Pie_0256.jpg?itok=c63mh-z9'
-    ),
-  ];
+  recipes: Recipe[] 
 
-  @Output() recipeDetail =new EventEmitter<object>(); 
+  // @Output() recipeDetail =new EventEmitter<Recipe>(); 
 
+  
+  constructor(private RecipeService:RecipeService) {}
+
+  
   recipeWasSelected(selectedRecipe:Recipe)
   {
-    
-     this.recipeDetail.emit(selectedRecipe);
+    this.RecipeService.recipeSelected.emit(selectedRecipe);
+    //  this.recipeDetail.emit(selectedRecipe);
   }
 
-  constructor() {}
-
-  ngOnInit() {}
+  ngOnInit() {
+    this.recipes = this.RecipeService.getRecipes();
+  }
 }
