@@ -16,7 +16,7 @@ export class ShoppingService {
   }
 
   onIngredientAdded(ingredient:Ingredients){
-  
+   console.log(ingredient,'added')
     this.ingredients.push(ingredient);
     this.ingredientAdded.emit(this.ingredients.slice());
     
