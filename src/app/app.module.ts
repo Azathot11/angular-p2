@@ -12,6 +12,8 @@ import { HeaderComponent } from './header/header.component';
 import { RecipesComponent } from './recipes/recipes.component';
 import { ShoppingComponent } from './shopping/shopping.component';
 import { DropdownDirective } from './shared/dropdown.directive';
+import { AppModuleRouting } from './app-routing-module';
+import { StartComponent } from './components/recipe/start/start.component'
 
 @NgModule({
   declarations: [
@@ -23,11 +25,13 @@ import { DropdownDirective } from './shared/dropdown.directive';
     HeaderComponent,
     RecipesComponent,
     ShoppingComponent,
-    DropdownDirective
+    DropdownDirective,
+    StartComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppModuleRouting
   ],
   providers: [],
   bootstrap: [AppComponent]

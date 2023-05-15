@@ -15,13 +15,6 @@ export class RecipeListComponent {
   
   constructor(private RecipeService:RecipeService) {}
 
-  
-  recipeWasSelected(selectedRecipe:Recipe)
-  {
-    this.RecipeService.recipeSelected.emit(selectedRecipe);
-    //  this.recipeDetail.emit(selectedRecipe);
-  }
-
   ngOnInit() {
     this.recipes = this.RecipeService.getRecipes();
   }

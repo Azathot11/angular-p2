@@ -10,6 +10,7 @@ export class RecipeService {
 
   private recipes: Recipe[] = [
     new Recipe(
+      1,
       'Test Recipe',
       'Testing Recipe',
       'https://www.kingarthurbaking.com/sites/default/files/styles/featured_image/public/2022-05/Tomato-Pie_0256.jpg?itok=c63mh-z9',
@@ -19,6 +20,7 @@ export class RecipeService {
       ]
     ),
     new Recipe(
+      2,
       'Test Recipe 2',
       'Testing Recipe',
       'https://www.kingarthurbaking.com/sites/default/files/styles/featured_image/public/2022-05/Tomato-Pie_0256.jpg?itok=c63mh-z9',
@@ -28,6 +30,7 @@ export class RecipeService {
       ]
     ),
     new Recipe(
+      3,
       'Test Recipe 3',
       'Testing Recipe',
       'https://www.kingarthurbaking.com/sites/default/files/styles/featured_image/public/2022-05/Tomato-Pie_0256.jpg?itok=c63mh-z9',
@@ -42,5 +45,9 @@ export class RecipeService {
 
   getRecipes() {
     return this.recipes.slice();
+  }
+
+  recipeDetail(id:number){
+    return this.recipes.find((recipe)=>recipe.id === id)
   }
 }
